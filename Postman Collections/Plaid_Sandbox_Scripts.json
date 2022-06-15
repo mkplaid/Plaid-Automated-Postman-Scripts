@@ -3756,7 +3756,7 @@
 									"response": []
 								},
 								{
-									"name": "Partner - Asset Relay Get Copy",
+									"name": "Partner - Asset Relay Refresh",
 									"id": "df4011dd-caef-473a-8084-94d1e3dc57a8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -5550,12 +5550,12 @@
 	],
 	"variable": [
 		{
-			"id": "4bc274c4-c66c-4830-99f6-44b635996649",
+			"id": "123ce6bd-a1cb-4ebc-bb67-0117f8549c26",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "5703de5d-058d-4e05-a692-1fb0c4f6678a",
+			"id": "dd92f98c-c774-4c36-8d29-821e09342057",
 			"key": "processor_token",
 			"value": ""
 		}
