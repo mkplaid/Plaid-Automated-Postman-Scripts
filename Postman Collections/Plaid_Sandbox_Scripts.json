@@ -3776,6 +3776,28 @@
 										"url": "https://{{env_url}}/asset_report/relay/refresh"
 									},
 									"response": []
+								},
+								{
+									"name": "Client - Asset Relay Create Copy",
+									"id": "3ac6d541-0337-4b4d-be41-d5854ee723da",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"asset_report_token\": \"asset_report_token\",\n \"secondary_client_id\": \"secondary_client_id\",\n \"webhook\" : \"www.example.com\"\n }\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://{{env_url}}/asset_report/relay/create"
+									},
+									"response": []
 								}
 							],
 							"id": "adcae56b-badd-4c5a-b83b-31b79f1ebb84"
@@ -5550,12 +5572,12 @@
 	],
 	"variable": [
 		{
-			"id": "10299ec7-0a45-44fd-b16e-0d7a206d30bd",
+			"id": "30ad1fd0-50b5-460c-bf74-16b45c974324",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "54b757cf-9ae3-4c35-8773-41d39ad8ede3",
+			"id": "1d207c36-d84b-4f87-aba2-0bcf4d027d0e",
 			"key": "processor_token",
 			"value": ""
 		}
