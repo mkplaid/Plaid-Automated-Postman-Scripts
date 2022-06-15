@@ -3464,7 +3464,7 @@
 							"name": "Assets Relay Token",
 							"item": [
 								{
-									"name": "Client - Create Assets Sandbox Item Copy",
+									"name": "Client - Create Assets Sandbox Item",
 									"event": [
 										{
 											"listen": "test",
@@ -5550,12 +5550,12 @@
 	],
 	"variable": [
 		{
-			"id": "11bc772f-ceb1-40fb-b156-e9cfba2bd686",
+			"id": "b74b67e3-749d-4974-9ef9-bf2b26dce015",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "6881dc6b-1dc8-477e-bdf4-e55b08a0b1a0",
+			"id": "4297546f-5159-4226-91a7-47b31ffd9406",
 			"key": "processor_token",
 			"value": ""
 		}
