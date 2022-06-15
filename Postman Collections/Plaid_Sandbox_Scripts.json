@@ -3720,6 +3720,15 @@
 									"request": {
 										"method": "POST",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"asset_report_token\": \"asset_report_token\",\n \"secondary_client_id\": \"secondary_client_id\",\n \"webhook\" : \"www.example.com\"\n }\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": "https://{{env_url}}/asset_report/relay/create"
 									},
 									"response": []
@@ -5497,12 +5506,12 @@
 	],
 	"variable": [
 		{
-			"id": "7bbf81b0-2551-44a9-a8e8-3434dedc5702",
+			"id": "142a3250-3c64-468b-b6a2-903beedbf23f",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "228e040c-fe6f-490e-87f7-eb00d8d44783",
+			"id": "400dc495-826d-4ba4-aac4-1b9b499fc4a8",
 			"key": "processor_token",
 			"value": ""
 		}
