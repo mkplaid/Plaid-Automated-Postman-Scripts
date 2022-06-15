@@ -3566,152 +3566,6 @@
 									"response": []
 								},
 								{
-									"name": "Create Asset Report Copy",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "98b5bab4-b9e4-4aa4-82f2-8866dfcd367b",
-												"exec": [
-													"//Parse json response body",
-													"var body = JSON.parse(responseBody);",
-													"var content = responseBody;",
-													"//set asset_report_token env variable",
-													"pm.environment.set(\"asset_report_token\", body.asset_report_token);",
-													"//test to validate that asset_report_token env variable is set",
-													"pm.test(\"asset_report_token env variable set\", function () {",
-													"    pm.expect(pm.environment.get(\"asset_report_token\")).not.eq(undefined);",
-													"});",
-													"//Print response body into test",
-													"tests[\"Response Body\"+content]= body.length != 0;",
-													"//Print access_token into test",
-													"tests[\"asset_report_token: \" + body.asset_report_token]= body.asset_report_token != 0;"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "58a1d096-1f00-4a87-8c9e-570f12a5bff7",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n   \"client_id\": \"{{client_id}}\",\n   \"secret\": \"{{secret_key}}\",\n   \"access_tokens\": [\"{{access_token}}\"],\n   \"days_requested\": 90,\n   \"options\": {\n      \"client_report_id\": \"\",\n      \"webhook\": \"https://www.genericwebhookurl.com/webhook\",\n      \"user\": {\n        \"client_user_id\": \"\",\n        \"first_name\": \"\",\n        \"middle_name\": \"\",\n        \"last_name\": \"\",\n        \"phone_number\": \"\",\n        \"email\": \"\"\n      }\n   }\n }"
-										},
-										"url": "https://{{env_url}}/asset_report/create",
-										"description": "With your desired `access_tokens` in hand, all you need to do to create an Asset Report is to call the `/asset_report/create` endpoint.\n\nWhen creating an Asset Report, the only required fields are your `client_id`, `secret`, an `array of access_tokens` (one for each Item to be included in the Report), and the number of `days_requested` which determines the duration of transaction history to be included.\n\n`options` is optional!"
-									},
-									"response": [
-										{
-											"id": "9396cb66-0b56-4cf1-bc5a-b99aea4cea0c",
-											"name": "Create Asset Report Example",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n   \"client_id\": \"{{client_id}}\",\n   \"secret\": \"{{secret_key}}\",\n   \"access_tokens\": [\"access-sandbox-872d26b4-449a-4676-b2d4-1a014835a9ba\"],\n   \"days_requested\": 30,\n   \"options\": {\n      \"client_report_id\": \"example_report_id\",\n      \"webhook\": \"https://www.randomdomain.com/webhook_url\",\n      \"user\": {\n        \"client_user_id\": \"example_user_id\",\n        \"first_name\": \"John\",\n        \"middle_name\": \"Deere\",\n        \"last_name\": \"Doe\",\n        \"ssn\": \"123-45-7890\",\n        \"phone_number\": \"3214560987\",\n        \"email\": \"john@doe.com\"\n      }\n   }\n }"
-												},
-												"url": "https://{{env_url}}/asset_report/create"
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "Connection",
-													"value": "keep-alive",
-													"name": "Connection",
-													"description": "Options that are desired for the connection"
-												},
-												{
-													"key": "Content-Encoding",
-													"value": "gzip",
-													"name": "Content-Encoding",
-													"description": "The type of encoding used on the data."
-												},
-												{
-													"key": "Content-Length",
-													"value": "155",
-													"name": "Content-Length",
-													"description": "The length of the response body in octets (8-bit bytes)"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json",
-													"name": "Content-Type",
-													"description": "The mime type of this content"
-												},
-												{
-													"key": "Date",
-													"value": "Wed, 29 Aug 2018 22:22:56 GMT",
-													"name": "Date",
-													"description": "The date and time that the message was sent"
-												},
-												{
-													"key": "Plaid-Version",
-													"value": "2018-05-22",
-													"name": "Plaid-Version",
-													"description": "Custom header"
-												},
-												{
-													"key": "Server",
-													"value": "nginx",
-													"name": "Server",
-													"description": "A name for the server"
-												},
-												{
-													"key": "Strict-Transport-Security",
-													"value": "max-age=31536000; includeSubDomains; preload",
-													"name": "Strict-Transport-Security",
-													"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
-												},
-												{
-													"key": "Vary",
-													"value": "Accept-Encoding",
-													"name": "Vary",
-													"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
-												},
-												{
-													"key": "X-Content-Type-Options",
-													"value": "nosniff",
-													"name": "X-Content-Type-Options",
-													"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
-												},
-												{
-													"key": "X-Frame-Options",
-													"value": "DENY",
-													"name": "X-Frame-Options",
-													"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
-												},
-												{
-													"key": "X-XSS-Protection",
-													"value": "1; mode=block",
-													"name": "X-XSS-Protection",
-													"description": "Cross-site scripting (XSS) filter"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n  \"asset_report_id\": \"67de6f27-dc59-4663-a5ec-f2e3c271d208\",\n  \"asset_report_token\": \"assets-sandbox-d4002c0d-458a-41d0-9208-ac23700940f1\",\n  \"request_id\": \"xHPFT\"\n}"
-										}
-									]
-								},
-								{
 									"name": "New Request",
 									"id": "26fd9e36-ab2b-4665-85b4-b9d12be50bd1",
 									"protocolProfileBehavior": {
@@ -5496,12 +5350,12 @@
 	],
 	"variable": [
 		{
-			"id": "a2abcd63-bb61-4557-ae9d-5291cc7763d4",
+			"id": "e3793676-6796-4d20-95d6-f5f4275087e0",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "6401a3dc-3e5f-4111-b675-c2abaf907ee7",
+			"id": "682f2927-1f76-476c-9ee5-9a3abd043e34",
 			"key": "processor_token",
 			"value": ""
 		}
