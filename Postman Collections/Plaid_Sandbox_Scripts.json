@@ -3607,7 +3607,7 @@
 											"mode": "raw",
 											"raw": "{\n   \"client_id\": \"{{client_id}}\",\n   \"secret\": \"{{secret_key}}\",\n   \"access_tokens\": [\"{{access_token}}\"],\n   \"days_requested\": 90,\n   \"options\": {\n      \"client_report_id\": \"\",\n      \"webhook\": \"https://www.genericwebhookurl.com/webhook\",\n      \"user\": {\n        \"client_user_id\": \"\",\n        \"first_name\": \"\",\n        \"middle_name\": \"\",\n        \"last_name\": \"\",\n        \"phone_number\": \"\",\n        \"email\": \"\"\n      }\n   }\n }"
 										},
-										"url": "https://{{env_url}}/asset_report/relay/create",
+										"url": "https://{{env_url}}/asset_report/create",
 										"description": "With your desired `access_tokens` in hand, all you need to do to create an Asset Report is to call the `/asset_report/create` endpoint.\n\nWhen creating an Asset Report, the only required fields are your `client_id`, `secret`, an `array of access_tokens` (one for each Item to be included in the Report), and the number of `days_requested` which determines the duration of transaction history to be included.\n\n`options` is optional!"
 									},
 									"response": [
@@ -5496,12 +5496,12 @@
 	],
 	"variable": [
 		{
-			"id": "dc672e9f-c7a4-4e2d-ae1b-5da8f8ea9100",
+			"id": "5a6e6afe-05cb-4b90-a873-dd56860e0e87",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "0053a4c1-9057-4b0b-abfd-14d40bedc530",
+			"id": "cd86bf14-36cc-4dcf-a166-1b2339f6ba71",
 			"key": "processor_token",
 			"value": ""
 		}
