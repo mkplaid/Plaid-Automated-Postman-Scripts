@@ -3718,7 +3718,7 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "GET",
+										"method": "POST",
 										"header": []
 									},
 									"response": []
@@ -5496,12 +5496,12 @@
 	],
 	"variable": [
 		{
-			"id": "b5cff96f-f80c-4393-9067-9b923ad159e1",
+			"id": "d17db3d0-0596-4132-92fc-1ef898e549ce",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "3c7f8ee7-d7a1-4290-bd63-bc2a57450ecf",
+			"id": "11cc2b80-8408-450f-ba0e-c8d8af3e5b51",
 			"key": "processor_token",
 			"value": ""
 		}
