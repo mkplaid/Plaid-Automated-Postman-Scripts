@@ -3734,6 +3734,28 @@
 									"response": []
 								},
 								{
+									"name": "Client - Asset Relay Create Copy",
+									"id": "3ac6d541-0337-4b4d-be41-d5854ee723da",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"asset_report_token\": \"asset_report_token\",\n \"secondary_client_id\": \"secondary_client_id\",\n \"webhook\" : \"www.example.com\"\n }\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://{{env_url}}/asset_report/relay/create"
+									},
+									"response": []
+								},
+								{
 									"name": "Partner - Asset Relay Get",
 									"id": "700fbd1f-12a5-410a-9262-d611cf46dfcc",
 									"protocolProfileBehavior": {
@@ -3774,28 +3796,6 @@
 											}
 										},
 										"url": "https://{{env_url}}/asset_report/relay/refresh"
-									},
-									"response": []
-								},
-								{
-									"name": "Client - Asset Relay Create Copy",
-									"id": "3ac6d541-0337-4b4d-be41-d5854ee723da",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"asset_report_token\": \"asset_report_token\",\n \"secondary_client_id\": \"secondary_client_id\",\n \"webhook\" : \"www.example.com\"\n }\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "https://{{env_url}}/asset_report/relay/create"
 									},
 									"response": []
 								}
@@ -5572,12 +5572,12 @@
 	],
 	"variable": [
 		{
-			"id": "37754dc2-228d-47cb-8909-8fc1a8fb70db",
+			"id": "8d4e071e-3b5c-4733-b086-94b8dfa467e8",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "f6a14021-2a14-4f46-8224-e2b4bd4103e9",
+			"id": "2251d867-a2cb-48fb-8186-04809278f9c1",
 			"key": "processor_token",
 			"value": ""
 		}
