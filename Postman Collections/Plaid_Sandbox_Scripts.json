@@ -3712,7 +3712,7 @@
 									]
 								},
 								{
-									"name": "New Request",
+									"name": "Asset Relay Create",
 									"id": "26fd9e36-ab2b-4665-85b4-b9d12be50bd1",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -5497,12 +5497,12 @@
 	],
 	"variable": [
 		{
-			"id": "45cf24cf-df12-4940-a26c-0d8bad7ff032",
+			"id": "56f254f9-5217-491e-8ef9-ac8f0ef12b77",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "b96c203a-212a-4d70-88b1-dfa88832ef69",
+			"id": "8db1ef6f-8a30-416a-9513-4cc06303c655",
 			"key": "processor_token",
 			"value": ""
 		}
