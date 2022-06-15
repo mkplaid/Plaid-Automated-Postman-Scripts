@@ -3050,6 +3050,60 @@
 									"response": []
 								},
 								{
+									"name": "Exchange public_token for access_token Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "58bec875-6d7c-48bb-95b4-d74bbc0023e2",
+												"exec": [
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set access_token env variable",
+													"pm.environment.set(\"access_token\", body.access_token);",
+													"//clear public_token env variable",
+													"pm.environment.unset(\"public_token\", \"\");",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print access_token into test",
+													"tests[\"access_token: \" + body.access_token]= body.access_token != 0;",
+													"//test to validate that public_token env variable is cleared",
+													"pm.test(\"public_token env variable cleared\", function () {",
+													"    pm.expect(pm.environment.get(\"public_token\")).eq(undefined);",
+													"});",
+													"//test to validate that access_token env variable is set",
+													"pm.test(\"access_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"access_token\")).not.eq(undefined);",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "9a140ab7-121b-4b82-a901-fae2ce7d9d55",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"public_token\": \"{{public_token}}\"\n}"
+										},
+										"url": "https://{{env_url}}/item/public_token/exchange",
+										"description": "Goes through the exchange token process where the `public_token` is exchanged for an `access_token`."
+									},
+									"response": []
+								},
+								{
 									"name": "Create Asset Report",
 									"event": [
 										{
@@ -5296,12 +5350,12 @@
 	],
 	"variable": [
 		{
-			"id": "c97c7def-72cb-4095-ac4b-9b39f531873e",
+			"id": "4c475cd3-10b6-46a0-b0b4-13c360dc1cd0",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "e3fa807e-25db-4490-931f-51d9d76780a9",
+			"id": "0239a9b5-292c-480e-ad96-86388a42d32f",
 			"key": "processor_token",
 			"value": ""
 		}
