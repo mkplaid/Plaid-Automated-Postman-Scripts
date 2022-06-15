@@ -3566,7 +3566,7 @@
 									"response": []
 								},
 								{
-									"name": "Create Asset Report Copy",
+									"name": "Client - Create Asset Report",
 									"event": [
 										{
 											"listen": "test",
@@ -5550,12 +5550,12 @@
 	],
 	"variable": [
 		{
-			"id": "b1285afc-ec69-4251-8539-2f9f6dd7fe59",
+			"id": "add7e6a5-9fd6-4d61-912c-a65795011695",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "f83d869a-8530-489b-b844-3af0462cb5d3",
+			"id": "3d7b5753-a804-484a-a3d0-cf44143eb784",
 			"key": "processor_token",
 			"value": ""
 		}
