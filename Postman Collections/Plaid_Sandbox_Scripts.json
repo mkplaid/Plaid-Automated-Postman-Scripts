@@ -3719,7 +3719,8 @@
 									},
 									"request": {
 										"method": "POST",
-										"header": []
+										"header": [],
+										"url": "https://{{env_url}}/asset_report/relay/create"
 									},
 									"response": []
 								}
@@ -5496,12 +5497,12 @@
 	],
 	"variable": [
 		{
-			"id": "5a6e6afe-05cb-4b90-a873-dd56860e0e87",
+			"id": "45cf24cf-df12-4940-a26c-0d8bad7ff032",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "cd86bf14-36cc-4dcf-a166-1b2339f6ba71",
+			"id": "b96c203a-212a-4d70-88b1-dfa88832ef69",
 			"key": "processor_token",
 			"value": ""
 		}
