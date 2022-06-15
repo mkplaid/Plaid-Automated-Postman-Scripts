@@ -2996,54 +2996,6 @@
 									"response": []
 								},
 								{
-									"name": "Create Assets Sandbox Item Copy",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "50617a7c-eaac-4fef-b1c2-1733e9a9dca0",
-												"exec": [
-													"",
-													"//Parse json response body",
-													"var body = JSON.parse(responseBody);",
-													"var content = responseBody;",
-													"//set public_token env variable",
-													"pm.environment.set(\"public_token\", body.public_token);",
-													"//test to validate that public_token env variable is set",
-													"pm.test(\"public_token env variable set\", function () {",
-													"    pm.expect(pm.environment.get(\"public_token\")).not.eq(undefined);",
-													"});",
-													"//Print response body into test",
-													"tests[\"Response Body\"+content]= body.length != 0;",
-													"//Print public_token into test",
-													"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "f40ef9cf-0f3f-4ed9-a45a-549a7eb43281",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"institution_id\": \"ins_3\",\n  \"initial_products\": [\"assets\"],\n  \"options\": {\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  }\n}"
-										},
-										"url": "https://{{env_url}}/sandbox/public_token/create",
-										"description": "Creates an `Item` in the `sandbox` environment. You will get back a `public_token` and a `request_id`."
-									},
-									"response": []
-								},
-								{
 									"name": "Exchange public_token for access_token",
 									"event": [
 										{
@@ -3511,6 +3463,54 @@
 						{
 							"name": "Assets Relay Token",
 							"item": [
+								{
+									"name": "Create Assets Sandbox Item Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "50617a7c-eaac-4fef-b1c2-1733e9a9dca0",
+												"exec": [
+													"",
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set public_token env variable",
+													"pm.environment.set(\"public_token\", body.public_token);",
+													"//test to validate that public_token env variable is set",
+													"pm.test(\"public_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"public_token\")).not.eq(undefined);",
+													"});",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print public_token into test",
+													"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "f40ef9cf-0f3f-4ed9-a45a-549a7eb43281",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"institution_id\": \"ins_3\",\n  \"initial_products\": [\"assets\"],\n  \"options\": {\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  }\n}"
+										},
+										"url": "https://{{env_url}}/sandbox/public_token/create",
+										"description": "Creates an `Item` in the `sandbox` environment. You will get back a `public_token` and a `request_id`."
+									},
+									"response": []
+								},
 								{
 									"name": "New Request",
 									"id": "26fd9e36-ab2b-4665-85b4-b9d12be50bd1",
@@ -5296,12 +5296,12 @@
 	],
 	"variable": [
 		{
-			"id": "1a2839fb-9e67-439d-81ee-dc44eeac6823",
+			"id": "c97c7def-72cb-4095-ac4b-9b39f531873e",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "bb7e7067-600b-4d8e-81ee-348f1557b7e6",
+			"id": "e3fa807e-25db-4490-931f-51d9d76780a9",
 			"key": "processor_token",
 			"value": ""
 		}
