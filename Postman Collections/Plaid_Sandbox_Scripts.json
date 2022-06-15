@@ -3512,7 +3512,7 @@
 									"response": []
 								},
 								{
-									"name": "Exchange public_token for access_token Copy",
+									"name": "Client - Exchange public_token for access_token",
 									"event": [
 										{
 											"listen": "test",
@@ -5550,12 +5550,12 @@
 	],
 	"variable": [
 		{
-			"id": "b74b67e3-749d-4974-9ef9-bf2b26dce015",
+			"id": "b1285afc-ec69-4251-8539-2f9f6dd7fe59",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "4297546f-5159-4226-91a7-47b31ffd9406",
+			"id": "f83d869a-8530-489b-b844-3af0462cb5d3",
 			"key": "processor_token",
 			"value": ""
 		}
