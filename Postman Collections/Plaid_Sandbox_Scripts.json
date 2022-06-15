@@ -3754,6 +3754,28 @@
 										"url": "https://{{env_url}}/asset_report/relay/get"
 									},
 									"response": []
+								},
+								{
+									"name": "Partner - Asset Relay Get Copy",
+									"id": "df4011dd-caef-473a-8084-94d1e3dc57a8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"asset_relay_token\": \"asset_relay_token\"\n }\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://{{env_url}}/asset_report/relay/get"
+									},
+									"response": []
 								}
 							],
 							"id": "adcae56b-badd-4c5a-b83b-31b79f1ebb84"
@@ -5528,12 +5550,12 @@
 	],
 	"variable": [
 		{
-			"id": "3f489da6-6553-4148-afba-cd95671317de",
+			"id": "2ec956ac-4e5f-4f21-a634-2bb9a6f19b99",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "c008a1c9-e4fb-4ebf-a505-a7f1d26d3ada",
+			"id": "f87188cf-f5d5-4845-b675-5c0c050790ad",
 			"key": "processor_token",
 			"value": ""
 		}
