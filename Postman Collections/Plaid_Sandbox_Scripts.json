@@ -3734,7 +3734,7 @@
 									"response": []
 								},
 								{
-									"name": "Asset Relay Create Copy",
+									"name": "Partner - Asset Relay Get",
 									"id": "700fbd1f-12a5-410a-9262-d611cf46dfcc",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -5528,12 +5528,12 @@
 	],
 	"variable": [
 		{
-			"id": "e648b1ff-9f7d-4acd-a224-c77c12a3ec67",
+			"id": "90083d65-7373-4eaf-a1ed-02ccc03b01ae",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "3e44dd10-d3f3-40e6-9501-71c9bc94d183",
+			"id": "cfbabdde-031a-4ffa-9cba-626c5a1adc35",
 			"key": "processor_token",
 			"value": ""
 		}
