@@ -3461,7 +3461,7 @@
 							"id": "b0876357-5352-41e3-ae60-85f89c5de97d"
 						},
 						{
-							"name": "New Folder",
+							"name": "Assets Relay Token",
 							"item": [],
 							"id": "adcae56b-badd-4c5a-b83b-31b79f1ebb84"
 						}
@@ -5235,12 +5235,12 @@
 	],
 	"variable": [
 		{
-			"id": "3b7018bc-9f7e-48d5-b3c5-5eef58d3d6e8",
+			"id": "7e99305b-09c3-463a-a07e-7ce9c88d8d95",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "803eff78-5fba-48df-a16a-dabfd0a0fbc5",
+			"id": "bbd0294b-1d35-49a6-bc09-c6ba52e07c4b",
 			"key": "processor_token",
 			"value": ""
 		}
