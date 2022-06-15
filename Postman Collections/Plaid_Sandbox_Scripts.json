@@ -3462,7 +3462,20 @@
 						},
 						{
 							"name": "Assets Relay Token",
-							"item": [],
+							"item": [
+								{
+									"name": "New Request",
+									"id": "26fd9e36-ab2b-4665-85b4-b9d12be50bd1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								}
+							],
 							"id": "adcae56b-badd-4c5a-b83b-31b79f1ebb84"
 						}
 					],
@@ -5235,12 +5248,12 @@
 	],
 	"variable": [
 		{
-			"id": "7e99305b-09c3-463a-a07e-7ce9c88d8d95",
+			"id": "80f7ca52-f068-4895-94fa-fd18cf6ae22d",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "bbd0294b-1d35-49a6-bc09-c6ba52e07c4b",
+			"id": "63b851cd-3a29-4b84-aef9-da51f076fcf2",
 			"key": "processor_token",
 			"value": ""
 		}
