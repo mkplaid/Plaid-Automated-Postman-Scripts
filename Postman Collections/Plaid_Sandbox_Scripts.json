@@ -3712,6 +3712,19 @@
 									]
 								},
 								{
+									"name": "Asset Relay Create",
+									"id": "26fd9e36-ab2b-4665-85b4-b9d12be50bd1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": "https://{{env_url}}/asset_report/relay/create"
+									},
+									"response": []
+								},
+								{
 									"name": "Create Asset Report Copy 2",
 									"event": [
 										{
@@ -3856,19 +3869,6 @@
 											"body": "{\n  \"asset_report_id\": \"67de6f27-dc59-4663-a5ec-f2e3c271d208\",\n  \"asset_report_token\": \"assets-sandbox-d4002c0d-458a-41d0-9208-ac23700940f1\",\n  \"request_id\": \"xHPFT\"\n}"
 										}
 									]
-								},
-								{
-									"name": "Asset Relay Create",
-									"id": "26fd9e36-ab2b-4665-85b4-b9d12be50bd1",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"url": "https://{{env_url}}/asset_report/relay/create"
-									},
-									"response": []
 								}
 							],
 							"id": "adcae56b-badd-4c5a-b83b-31b79f1ebb84"
@@ -5643,12 +5643,12 @@
 	],
 	"variable": [
 		{
-			"id": "dd3c36d8-4f34-4b15-8fec-6ba845711b3e",
+			"id": "cf5f3375-0993-4074-b6d5-b6229482f58f",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "2b3a292f-bca8-4a74-8316-eeb9a8f2ba94",
+			"id": "084c1455-507c-4943-a940-c8888f4969b3",
 			"key": "processor_token",
 			"value": ""
 		}
