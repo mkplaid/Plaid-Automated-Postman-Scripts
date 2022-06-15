@@ -3773,7 +3773,7 @@
 												}
 											}
 										},
-										"url": "https://{{env_url}}/asset_report/relay/get"
+										"url": "https://{{env_url}}/asset_report/relay/refresh"
 									},
 									"response": []
 								}
@@ -5550,12 +5550,12 @@
 	],
 	"variable": [
 		{
-			"id": "123ce6bd-a1cb-4ebc-bb67-0117f8549c26",
+			"id": "5c7d6cb8-f51e-48b9-b514-c308bed9164c",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "dd92f98c-c774-4c36-8d29-821e09342057",
+			"id": "a615b3f7-5a08-4eed-8dd3-5edc223917be",
 			"key": "processor_token",
 			"value": ""
 		}
