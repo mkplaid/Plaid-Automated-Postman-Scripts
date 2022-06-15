@@ -3566,6 +3566,18 @@
 									"response": []
 								},
 								{
+									"name": "New Request",
+									"id": "26fd9e36-ab2b-4665-85b4-b9d12be50bd1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								},
+								{
 									"name": "Create Asset Report Copy",
 									"event": [
 										{
@@ -3710,18 +3722,6 @@
 											"body": "{\n  \"asset_report_id\": \"67de6f27-dc59-4663-a5ec-f2e3c271d208\",\n  \"asset_report_token\": \"assets-sandbox-d4002c0d-458a-41d0-9208-ac23700940f1\",\n  \"request_id\": \"xHPFT\"\n}"
 										}
 									]
-								},
-								{
-									"name": "New Request",
-									"id": "26fd9e36-ab2b-4665-85b4-b9d12be50bd1",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": []
-									},
-									"response": []
 								}
 							],
 							"id": "adcae56b-badd-4c5a-b83b-31b79f1ebb84"
@@ -5496,12 +5496,12 @@
 	],
 	"variable": [
 		{
-			"id": "d17db3d0-0596-4132-92fc-1ef898e549ce",
+			"id": "26506701-978c-4194-8b72-7c41f739045c",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "11cc2b80-8408-450f-ba0e-c8d8af3e5b51",
+			"id": "126997df-7228-4368-803f-215a1bde5ebf",
 			"key": "processor_token",
 			"value": ""
 		}
