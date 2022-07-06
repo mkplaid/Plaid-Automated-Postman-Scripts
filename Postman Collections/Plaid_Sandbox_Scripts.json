@@ -4599,7 +4599,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"client_id\": \"{{client_id}}\",\n\t\"secret\": \"{{secret_key}}\",\n    \"access_token\": \"{{access_token}}\",\n    \"account_id\": \"{{account_id}}\",\n    \"processor\": \"PROCESSOR_STRING_HERE\"\n}"
+									"raw": "{\n\t\"client_id\": \"{{client_id}}\",\n\t\"secret\": \"{{secret_key}}\",\n    \"access_token\": \"{{access_token}}\",\n    \"account_id\": \"{{account_id}}\",\n    \"processor\": \"dwolla\"\n}"
 								},
 								"url": "https://{{env_url}}/processor/token/create",
 								"description": "Used to create a token suitable for sending to one of Plaid's partners to enable integrations. Note that Stripe partnerships use bank account tokens instead; see `/processor/stripe/bank_account_token/create` for creating tokens for use with Stripe integrations."
@@ -5827,12 +5827,12 @@
 	],
 	"variable": [
 		{
-			"id": "51ebecf1-e356-4c72-bbdc-c9e0ff3f0dda",
+			"id": "96c90045-8f8f-45b0-bab8-79d900cbfd24",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "59d4c0ae-f420-4aa3-9833-35e3c1b41cab",
+			"id": "fb42aa48-eb05-4445-acea-bf8b45e895fd",
 			"key": "processor_token",
 			"value": ""
 		}
