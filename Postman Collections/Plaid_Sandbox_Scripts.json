@@ -4797,7 +4797,7 @@
 							"response": []
 						},
 						{
-							"name": "Create processor_token",
+							"name": "Create Stripe Token",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -5827,12 +5827,12 @@
 	],
 	"variable": [
 		{
-			"id": "a875d895-9458-4f46-8d50-3349ffebb13b",
+			"id": "17b7dd5b-7e3d-4878-8789-7ea22ca73d3b",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "6fdb6bc8-e41d-411e-b3d9-b82f4eef75f1",
+			"id": "e211c67e-0327-4b2c-a245-3aa21bc2e369",
 			"key": "processor_token",
 			"value": ""
 		}
