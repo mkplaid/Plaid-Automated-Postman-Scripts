@@ -4645,261 +4645,6 @@
 					"id": "2be9e6f2-3c46-43ea-9719-0bd9efbd3b80"
 				},
 				{
-					"name": "Processor Token End-to-End Copy",
-					"item": [
-						{
-							"name": "Create Sandbox Item",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "e6a20aa0-6892-4248-a99e-886995181cef",
-										"exec": [
-											"",
-											"//Parse json response body",
-											"var body = JSON.parse(responseBody);",
-											"var content = responseBody;",
-											"//set public_token env variable",
-											"pm.environment.set(\"public_token\", body.public_token);",
-											"//test to validate that public_token env variable is set",
-											"pm.test(\"public_token env variable set\", function () {",
-											"    pm.expect(pm.environment.get(\"public_token\")).not.eq(undefined);",
-											"});",
-											"//Print response body into test",
-											"tests[\"Response Body\"+content]= body.length != 0;",
-											"//Print public_token into test",
-											"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "d3f6e5e7-7819-4175-9577-3402a02c08a2",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"institution_id\": \"ins_3\",\n  \"initial_products\": [\"auth\"],\n  \"options\": {\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  }\n}"
-								},
-								"url": "https://{{env_url}}/sandbox/public_token/create",
-								"description": "Creates an `Item` in the `sandbox` environment. You will get back a `public_token` and a `request_id`."
-							},
-							"response": []
-						},
-						{
-							"name": "Exchange public_token for access_token",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "cc4b35c0-f3b1-4712-afa9-1a83a3655e65",
-										"exec": [
-											"//Parse json response body",
-											"var body = JSON.parse(responseBody);",
-											"var content = responseBody;",
-											"//set access_token env variable",
-											"pm.environment.set(\"access_token\", body.access_token);",
-											"//clear public_token env variable",
-											"pm.environment.unset(\"public_token\", \"\");",
-											"//Print response body into test",
-											"tests[\"Response Body\"+content]= body.length != 0;",
-											"//Print access_token into test",
-											"tests[\"access_token: \" + body.access_token]= body.access_token != 0;",
-											"//test to validate that public_token env variable is cleared",
-											"pm.test(\"public_token env variable cleared\", function () {",
-											"    pm.expect(pm.environment.get(\"public_token\")).eq(undefined);",
-											"});",
-											"//test to validate that access_token env variable is set",
-											"pm.test(\"access_token env variable set\", function () {",
-											"    pm.expect(pm.environment.get(\"access_token\")).not.eq(undefined);",
-											"});",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "d4295643-3d11-4973-b263-b56f827366ea",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"public_token\": \"{{public_token}}\"\n}"
-								},
-								"url": "https://{{env_url}}/item/public_token/exchange",
-								"description": "Goes through the exchange token process where the `public_token` is exchanged for an `access_token`."
-							},
-							"response": []
-						},
-						{
-							"name": "Retrieve account_id (Testing Only)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "11eda18e-73a0-4b2a-9c10-b5f156c25bbe",
-										"exec": [
-											"//Parse json response body",
-											"var body = JSON.parse(responseBody);",
-											"var content = responseBody;",
-											"// set account_id env variable",
-											"pm.environment.set('account_id',body.accounts[0].account_id)",
-											"//Print account_id into test",
-											"tests[\"account_id: \" + body.accounts[0].account_id]= body.accounts[0].account_id != 0;",
-											"//Print response body into test",
-											"tests[\"Response Body: \"+content]= body.length != 0;",
-											"//test to validate that access_token env variable is set",
-											"pm.test(\"account_id env variable set\", function () {",
-											"    pm.expect(pm.environment.get(\"account_id\")).not.eq(undefined);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "b6e1e8df-5e47-4890-9edf-762f4ddf725f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"client_id\": \"{{client_id}}\",\n\t\"secret\": \"{{secret_key}}\",\n\t\"access_token\": \"{{access_token}}\"\n}"
-								},
-								"url": "https://{{env_url}}/accounts/get",
-								"description": "This endpoint allows you to retrieve all available `Account`s associated with an `Item`."
-							},
-							"response": []
-						},
-						{
-							"name": "Create processor_token",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "18183432-5b1c-414a-857e-9e5d9177dfec",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"id": "e230d120-8994-4743-82e0-c6fea7b290ac",
-										"exec": [
-											"//Parse json response body",
-											"var body = JSON.parse(responseBody);",
-											"var content = responseBody;",
-											"// set processor_token collection variable. To pull auth/balance/identity with this processor_token, switch to processor credentials in Postman",
-											"pm.collectionVariables.set('processor_token',body.processor_token)",
-											"//Print account_id into test",
-											"tests[\"processor_token: \" + body.processor_token]= body.processor_token != 0;",
-											"//Print response body into test",
-											"tests[\"Response Body\"+content]= body.length != 0;",
-											"//clear account_id env variable",
-											"pm.environment.unset(\"account_id\", \"\");",
-											"//test to validate that account_id variable is cleared",
-											"pm.test(\"account_id env variable cleared\", function () {",
-											"    pm.expect(pm.environment.get(\"account_id\")).eq(undefined);",
-											"});",
-											"//clear access_token env variable",
-											"pm.environment.unset(\"access_token\", \"\");",
-											"//test to validate that access_token variable is cleared",
-											"pm.test(\"access_token env variable cleared\", function () {",
-											"    pm.expect(pm.environment.get(\"access_token\")).eq(undefined);",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "dc5e0aed-0ca2-4b11-b38b-fcda916744f5",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"client_id\": \"{{client_id}}\",\n\t\"secret\": \"{{secret_key}}\",\n    \"access_token\": \"{{access_token}}\",\n    \"account_id\": \"{{account_id}}\",\n    \"processor\": \"PROCESSOR_STRING_HERE\"\n}"
-								},
-								"url": "https://{{env_url}}/processor/token/create",
-								"description": "Used to create a token suitable for sending to one of Plaid's partners to enable integrations. Note that Stripe partnerships use bank account tokens instead; see `/processor/stripe/bank_account_token/create` for creating tokens for use with Stripe integrations."
-							},
-							"response": []
-						},
-						{
-							"name": "Get Auth data (change to processor credentials!)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "d8436507-0f5b-441c-879b-2d010e96cbfa",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "45427dc8-d300-4aa4-95f6-ebb4c83e2e46",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"client_id\": \"{{client_id}}\",\n\t\"secret\": \"{{secret_key}}\",\n\t\"processor_token\": \"{{processor_token}}\"\n}"
-								},
-								"url": "https://{{env_url}}/processor/auth/get",
-								"description": "The `/processor/auth/get` endpoint returns the bank account and bank identification number (such as the routing number, for US accounts), for a checking or savings account that's associated with a given `processor_token`. The endpoint also returns high-level account data and balances when available."
-							},
-							"response": []
-						}
-					],
-					"id": "27dc3cf4-6f51-458e-bc49-8db1c8072c61"
-				},
-				{
 					"name": "Processor Token Error Test",
 					"item": [
 						{
@@ -5798,6 +5543,261 @@
 						}
 					],
 					"id": "29011d16-bc0b-44e4-b8a4-ae19cd9757bb"
+				},
+				{
+					"name": "Processor Token End-to-End Copy",
+					"item": [
+						{
+							"name": "Create Sandbox Item",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e6a20aa0-6892-4248-a99e-886995181cef",
+										"exec": [
+											"",
+											"//Parse json response body",
+											"var body = JSON.parse(responseBody);",
+											"var content = responseBody;",
+											"//set public_token env variable",
+											"pm.environment.set(\"public_token\", body.public_token);",
+											"//test to validate that public_token env variable is set",
+											"pm.test(\"public_token env variable set\", function () {",
+											"    pm.expect(pm.environment.get(\"public_token\")).not.eq(undefined);",
+											"});",
+											"//Print response body into test",
+											"tests[\"Response Body\"+content]= body.length != 0;",
+											"//Print public_token into test",
+											"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "d3f6e5e7-7819-4175-9577-3402a02c08a2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"institution_id\": \"ins_3\",\n  \"initial_products\": [\"auth\"],\n  \"options\": {\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  }\n}"
+								},
+								"url": "https://{{env_url}}/sandbox/public_token/create",
+								"description": "Creates an `Item` in the `sandbox` environment. You will get back a `public_token` and a `request_id`."
+							},
+							"response": []
+						},
+						{
+							"name": "Exchange public_token for access_token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cc4b35c0-f3b1-4712-afa9-1a83a3655e65",
+										"exec": [
+											"//Parse json response body",
+											"var body = JSON.parse(responseBody);",
+											"var content = responseBody;",
+											"//set access_token env variable",
+											"pm.environment.set(\"access_token\", body.access_token);",
+											"//clear public_token env variable",
+											"pm.environment.unset(\"public_token\", \"\");",
+											"//Print response body into test",
+											"tests[\"Response Body\"+content]= body.length != 0;",
+											"//Print access_token into test",
+											"tests[\"access_token: \" + body.access_token]= body.access_token != 0;",
+											"//test to validate that public_token env variable is cleared",
+											"pm.test(\"public_token env variable cleared\", function () {",
+											"    pm.expect(pm.environment.get(\"public_token\")).eq(undefined);",
+											"});",
+											"//test to validate that access_token env variable is set",
+											"pm.test(\"access_token env variable set\", function () {",
+											"    pm.expect(pm.environment.get(\"access_token\")).not.eq(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "d4295643-3d11-4973-b263-b56f827366ea",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"public_token\": \"{{public_token}}\"\n}"
+								},
+								"url": "https://{{env_url}}/item/public_token/exchange",
+								"description": "Goes through the exchange token process where the `public_token` is exchanged for an `access_token`."
+							},
+							"response": []
+						},
+						{
+							"name": "Retrieve account_id (Testing Only)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "11eda18e-73a0-4b2a-9c10-b5f156c25bbe",
+										"exec": [
+											"//Parse json response body",
+											"var body = JSON.parse(responseBody);",
+											"var content = responseBody;",
+											"// set account_id env variable",
+											"pm.environment.set('account_id',body.accounts[0].account_id)",
+											"//Print account_id into test",
+											"tests[\"account_id: \" + body.accounts[0].account_id]= body.accounts[0].account_id != 0;",
+											"//Print response body into test",
+											"tests[\"Response Body: \"+content]= body.length != 0;",
+											"//test to validate that access_token env variable is set",
+											"pm.test(\"account_id env variable set\", function () {",
+											"    pm.expect(pm.environment.get(\"account_id\")).not.eq(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "b6e1e8df-5e47-4890-9edf-762f4ddf725f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"client_id\": \"{{client_id}}\",\n\t\"secret\": \"{{secret_key}}\",\n\t\"access_token\": \"{{access_token}}\"\n}"
+								},
+								"url": "https://{{env_url}}/accounts/get",
+								"description": "This endpoint allows you to retrieve all available `Account`s associated with an `Item`."
+							},
+							"response": []
+						},
+						{
+							"name": "Create processor_token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "18183432-5b1c-414a-857e-9e5d9177dfec",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "e230d120-8994-4743-82e0-c6fea7b290ac",
+										"exec": [
+											"//Parse json response body",
+											"var body = JSON.parse(responseBody);",
+											"var content = responseBody;",
+											"// set processor_token collection variable. To pull auth/balance/identity with this processor_token, switch to processor credentials in Postman",
+											"pm.collectionVariables.set('processor_token',body.processor_token)",
+											"//Print account_id into test",
+											"tests[\"processor_token: \" + body.processor_token]= body.processor_token != 0;",
+											"//Print response body into test",
+											"tests[\"Response Body\"+content]= body.length != 0;",
+											"//clear account_id env variable",
+											"pm.environment.unset(\"account_id\", \"\");",
+											"//test to validate that account_id variable is cleared",
+											"pm.test(\"account_id env variable cleared\", function () {",
+											"    pm.expect(pm.environment.get(\"account_id\")).eq(undefined);",
+											"});",
+											"//clear access_token env variable",
+											"pm.environment.unset(\"access_token\", \"\");",
+											"//test to validate that access_token variable is cleared",
+											"pm.test(\"access_token env variable cleared\", function () {",
+											"    pm.expect(pm.environment.get(\"access_token\")).eq(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "dc5e0aed-0ca2-4b11-b38b-fcda916744f5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"client_id\": \"{{client_id}}\",\n\t\"secret\": \"{{secret_key}}\",\n    \"access_token\": \"{{access_token}}\",\n    \"account_id\": \"{{account_id}}\",\n    \"processor\": \"PROCESSOR_STRING_HERE\"\n}"
+								},
+								"url": "https://{{env_url}}/processor/token/create",
+								"description": "Used to create a token suitable for sending to one of Plaid's partners to enable integrations. Note that Stripe partnerships use bank account tokens instead; see `/processor/stripe/bank_account_token/create` for creating tokens for use with Stripe integrations."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Auth data (change to processor credentials!)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d8436507-0f5b-441c-879b-2d010e96cbfa",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "45427dc8-d300-4aa4-95f6-ebb4c83e2e46",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"client_id\": \"{{client_id}}\",\n\t\"secret\": \"{{secret_key}}\",\n\t\"processor_token\": \"{{processor_token}}\"\n}"
+								},
+								"url": "https://{{env_url}}/processor/auth/get",
+								"description": "The `/processor/auth/get` endpoint returns the bank account and bank identification number (such as the routing number, for US accounts), for a checking or savings account that's associated with a given `processor_token`. The endpoint also returns high-level account data and balances when available."
+							},
+							"response": []
+						}
+					],
+					"id": "27dc3cf4-6f51-458e-bc49-8db1c8072c61"
 				}
 			],
 			"id": "21177037-023e-4fee-a86c-81b88e00119f"
@@ -5827,12 +5827,12 @@
 	],
 	"variable": [
 		{
-			"id": "0f4e76d8-667a-400e-ad80-78be30afe4f3",
+			"id": "0ae6c355-af99-406a-b9b3-02a76dd27459",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "c1403160-8eb7-4818-8b04-f399a763f7cd",
+			"id": "35e147d6-119b-480b-a0a3-5517da129700",
 			"key": "processor_token",
 			"value": ""
 		}
