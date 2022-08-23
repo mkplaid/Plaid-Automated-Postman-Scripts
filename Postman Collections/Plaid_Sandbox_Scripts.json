@@ -2736,7 +2736,7 @@
 									"mode": "raw",
 									"raw": "{\n\t\"client_id\": \"{{client_id}}\",\n\t\"secret\": \"{{secret_key}}\",\n\t\"access_token\": \"{{access_token}}\",\n    \"start_date\": \"{{twoYearsBack}}\",\n    \"end_date\": \"{{todayDate}}\" \n    \n}"
 								},
-								"url": "https://{{env_url}}/transactions/get",
+								"url": "https://{{env_url}}/investments/holdings/get",
 								"description": "The `/auth/get` endpoint allows you to retrieve the bank account and routing numbers associated with an Item’s checking and savings accounts, along with high-level account data and balances."
 							},
 							"response": [
@@ -5827,12 +5827,12 @@
 	],
 	"variable": [
 		{
-			"id": "96c90045-8f8f-45b0-bab8-79d900cbfd24",
+			"id": "88a348eb-244d-4358-be4d-82126bd7ced2",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "fb42aa48-eb05-4445-acea-bf8b45e895fd",
+			"id": "6c3b7c92-e32a-47e6-bfb0-ac5d21533081",
 			"key": "processor_token",
 			"value": ""
 		}
