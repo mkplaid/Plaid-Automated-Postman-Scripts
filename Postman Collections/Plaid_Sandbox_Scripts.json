@@ -2277,6 +2277,113 @@
 							"response": []
 						},
 						{
+							"name": "[Sync] Retrieve Transactions By Incremental Updates Copy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"id": "5ad3bab2-3d19-4de9-b0c2-12918a9164df"
+									}
+								}
+							],
+							"id": "e1fa0750-6bb2-4bca-bee2-daac9ee4d062",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"access_token\": \"{{access_token}}\",\n  \"count\": 5\n}"
+								},
+								"url": "https://{{env_url}}/transactions/sync",
+								"description": "_(replaces `/transactions/get` and its associated webhooks for most common use-cases)_\n\nThe `/transactions/sync` endpoint allows developers to subscribe to all transactions associated with an Item and get updates synchronously in a stream-like manner, using a cursor to track which updates have already been seen. `/transactions/sync` provides the same functionality as `/transactions/get` and can be used instead of `/transactions/get` to simplify the process of tracking transactions updates.\n\nReturned transactions data is grouped into three types of update, indicating whether the transaction was added, removed, or modified since the last call to the API.\n\nIn the first call to `/transactions/sync` for an Item, the endpoint will return all historical transactions data associated with that Item up until the time of the API call (as \"adds\"), which then generates a `latest_cursor` for that Item. In subsequent calls, send the `latest_cursor` to receive only the changes that have occurred since the previous call.\n\nDue to the potentially large number of transactions associated with an Item, results are paginated. The `has_more` field specifies if additional calls are necessary to fetch all available transaction updates.\n\nWhenever new or updated transaction data becomes available, `/transactions/sync` will provide these updates. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. An Item's `status.transactions.last_successful_update` field will show the timestamp of the most recent successful update. To force Plaid to check for new transactions, use the `/transactions/refresh` endpoint.\n\nNote that for newly created Items, data may not be immediately available to `/transactions/sync`. Plaid begins preparing transactions data when the Item is created, but the process can take anywhere from a few seconds to several minutes to complete, depending on the number of transactions available.\n\nTo be alerted when new data is available, listen for the [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#sync_updates_available) webhook."
+							},
+							"response": [
+								{
+									"id": "8d64a453-62ca-48fc-8872-4f3a17742259",
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"access_token\": \"{{access_token}}\",\n  \"count\": 5\n}"
+										},
+										"url": "https://{{env_url}}/transactions/sync"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 15 May 2022 20:45:32 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1021"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "content-encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "plaid-version",
+											"value": "2020-09-14"
+										},
+										{
+											"key": "vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"added\": [\n        {\n            \"account_id\": \"8gvvg7mvvPHdDrybZ9ozTa5gzvAyEnFZ4y63e\",\n            \"account_owner\": null,\n            \"amount\": 5.4,\n            \"authorized_date\": \"2022-05-04\",\n            \"authorized_datetime\": null,\n            \"category\": [\n                \"Travel\",\n                \"Taxi\"\n            ],\n            \"category_id\": \"22016000\",\n            \"check_number\": null,\n            \"date\": \"2022-05-05\",\n            \"datetime\": null,\n            \"iso_currency_code\": \"USD\",\n            \"location\": {\n                \"address\": null,\n                \"city\": null,\n                \"country\": null,\n                \"lat\": null,\n                \"lon\": null,\n                \"postal_code\": null,\n                \"region\": null,\n                \"store_number\": null\n            },\n            \"merchant_name\": \"Uber\",\n            \"name\": \"Uber 063015 SF**POOL**\",\n            \"payment_channel\": \"in store\",\n            \"payment_meta\": {\n                \"by_order_of\": null,\n                \"payee\": null,\n                \"payer\": null,\n                \"payment_method\": null,\n                \"payment_processor\": null,\n                \"ppd_id\": null,\n                \"reason\": null,\n                \"reference_number\": null\n            },\n            \"pending\": false,\n            \"pending_transaction_id\": null,\n            \"personal_finance_category\": null,\n            \"transaction_code\": null,\n            \"transaction_id\": \"8gvvg7mvvPHdDrybZ9ozTa5vQ1gvAehKQN7aL\",\n            \"transaction_type\": \"special\",\n            \"unofficial_currency_code\": null\n        },\n        {\n            \"account_id\": \"8gvvg7mvvPHdDrybZ9ozTa5gzvAyEnFZ4y63e\",\n            \"account_owner\": null,\n            \"amount\": -500,\n            \"authorized_date\": \"2022-05-03\",\n            \"authorized_datetime\": null,\n            \"category\": [\n                \"Travel\",\n                \"Airlines and Aviation Services\"\n            ],\n            \"category_id\": \"22001000\",\n            \"check_number\": null,\n            \"date\": \"2022-05-03\",\n            \"datetime\": null,\n            \"iso_currency_code\": \"USD\",\n            \"location\": {\n                \"address\": null,\n                \"city\": null,\n                \"country\": null,\n                \"lat\": null,\n                \"lon\": null,\n                \"postal_code\": null,\n                \"region\": null,\n                \"store_number\": null\n            },\n            \"merchant_name\": \"United Airlines\",\n            \"name\": \"United Airlines\",\n            \"payment_channel\": \"other\",\n            \"payment_meta\": {\n                \"by_order_of\": null,\n                \"payee\": null,\n                \"payer\": null,\n                \"payment_method\": null,\n                \"payment_processor\": null,\n                \"ppd_id\": null,\n                \"reason\": null,\n                \"reference_number\": null\n            },\n            \"pending\": false,\n            \"pending_transaction_id\": null,\n            \"personal_finance_category\": null,\n            \"transaction_code\": null,\n            \"transaction_id\": \"EJnnJAKnnWt56Gw3JAQrUXvq6G4qrwC9A68Ql\",\n            \"transaction_type\": \"special\",\n            \"unofficial_currency_code\": null\n        },\n        {\n            \"account_id\": \"8gvvg7mvvPHdDrybZ9ozTa5gzvAyEnFZ4y63e\",\n            \"account_owner\": null,\n            \"amount\": 12,\n            \"authorized_date\": \"2022-05-02\",\n            \"authorized_datetime\": null,\n            \"category\": [\n                \"Food and Drink\",\n                \"Restaurants\",\n                \"Fast Food\"\n            ],\n            \"category_id\": \"13005032\",\n            \"check_number\": null,\n            \"date\": \"2022-05-02\",\n            \"datetime\": null,\n            \"iso_currency_code\": \"USD\",\n            \"location\": {\n                \"address\": null,\n                \"city\": null,\n                \"country\": null,\n                \"lat\": null,\n                \"lon\": null,\n                \"postal_code\": null,\n                \"region\": null,\n                \"store_number\": \"3322\"\n            },\n            \"merchant_name\": \"McDonald's\",\n            \"name\": \"McDonald's\",\n            \"payment_channel\": \"in store\",\n            \"payment_meta\": {\n                \"by_order_of\": null,\n                \"payee\": null,\n                \"payer\": null,\n                \"payment_method\": null,\n                \"payment_processor\": null,\n                \"ppd_id\": null,\n                \"reason\": null,\n                \"reference_number\": null\n            },\n            \"pending\": false,\n            \"pending_transaction_id\": null,\n            \"personal_finance_category\": null,\n            \"transaction_code\": null,\n            \"transaction_id\": \"W3pp3ZMppAu5p6KyJQqwURz16oJ13dtwNB3Mj\",\n            \"transaction_type\": \"place\",\n            \"unofficial_currency_code\": null\n        },\n        {\n            \"account_id\": \"8gvvg7mvvPHdDrybZ9ozTa5gzvAyEnFZ4y63e\",\n            \"account_owner\": null,\n            \"amount\": 4.33,\n            \"authorized_date\": \"2022-05-02\",\n            \"authorized_datetime\": null,\n            \"category\": [\n                \"Food and Drink\",\n                \"Restaurants\",\n                \"Coffee Shop\"\n            ],\n            \"category_id\": \"13005043\",\n            \"check_number\": null,\n            \"date\": \"2022-05-02\",\n            \"datetime\": null,\n            \"iso_currency_code\": \"USD\",\n            \"location\": {\n                \"address\": null,\n                \"city\": null,\n                \"country\": null,\n                \"lat\": null,\n                \"lon\": null,\n                \"postal_code\": null,\n                \"region\": null,\n                \"store_number\": null\n            },\n            \"merchant_name\": \"Starbucks\",\n            \"name\": \"Starbucks\",\n            \"payment_channel\": \"in store\",\n            \"payment_meta\": {\n                \"by_order_of\": null,\n                \"payee\": null,\n                \"payer\": null,\n                \"payment_method\": null,\n                \"payment_processor\": null,\n                \"ppd_id\": null,\n                \"reason\": null,\n                \"reference_number\": null\n            },\n            \"pending\": false,\n            \"pending_transaction_id\": null,\n            \"personal_finance_category\": null,\n            \"transaction_code\": null,\n            \"transaction_id\": \"AJ44JgV44WtZBAQDEJXjTMbyqjxy7Ei6VBLwx\",\n            \"transaction_type\": \"place\",\n            \"unofficial_currency_code\": null\n        },\n        {\n            \"account_id\": \"8gvvg7mvvPHdDrybZ9ozTa5gzvAyEnFZ4y63e\",\n            \"account_owner\": null,\n            \"amount\": 89.4,\n            \"authorized_date\": \"2022-04-30\",\n            \"authorized_datetime\": null,\n            \"category\": [\n                \"Food and Drink\",\n                \"Restaurants\"\n            ],\n            \"category_id\": \"13005000\",\n            \"check_number\": null,\n            \"date\": \"2022-05-01\",\n            \"datetime\": null,\n            \"iso_currency_code\": \"USD\",\n            \"location\": {\n                \"address\": null,\n                \"city\": null,\n                \"country\": null,\n                \"lat\": null,\n                \"lon\": null,\n                \"postal_code\": null,\n                \"region\": null,\n                \"store_number\": null\n            },\n            \"merchant_name\": \"Sparkfun\",\n            \"name\": \"SparkFun\",\n            \"payment_channel\": \"in store\",\n            \"payment_meta\": {\n                \"by_order_of\": null,\n                \"payee\": null,\n                \"payer\": null,\n                \"payment_method\": null,\n                \"payment_processor\": null,\n                \"ppd_id\": null,\n                \"reason\": null,\n                \"reference_number\": null\n            },\n            \"pending\": false,\n            \"pending_transaction_id\": null,\n            \"personal_finance_category\": null,\n            \"transaction_code\": null,\n            \"transaction_id\": \"GJRRJqzRR6t5AMRvalb3U9WrxenrPqSANZK9K\",\n            \"transaction_type\": \"place\",\n            \"unofficial_currency_code\": null\n        }\n    ],\n    \"has_more\": true,\n    \"modified\": [],\n    \"next_cursor\": \"CAESJUdKUlJKcXpSUjZ0NUFNUnZhbGIzVTlXcnhlbnJQcVNBTlpLOUsiDAjVvIWUBhCA1ZTWAyoMCNi8hZQGEIDt+LUC\",\n    \"removed\": [],\n    \"request_id\": \"L7cfpY21SIa7IgK\"\n}"
+								}
+							]
+						},
+						{
 							"name": "Retrieve Transactions Data",
 							"event": [
 								{
@@ -5827,12 +5934,12 @@
 	],
 	"variable": [
 		{
-			"id": "16ca5285-06f4-4078-99a5-ef5faca21ebe",
+			"id": "d2be40c3-f064-4053-b1ae-c94fbb2c0a55",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "b367347e-3712-42a0-85f0-2d1cbf0680cd",
+			"id": "64d5ae3c-0459-4518-b741-53f9e179c80b",
 			"key": "processor_token",
 			"value": ""
 		}
