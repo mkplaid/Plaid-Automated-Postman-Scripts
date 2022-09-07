@@ -3880,7 +3880,7 @@
 												}
 											}
 										},
-										"url": "https://{{env_url}}/asset_report/relay/refresh"
+										"url": "https://{{env_url}}/credit/relay/refresh"
 									},
 									"response": []
 								},
@@ -5934,12 +5934,12 @@
 	],
 	"variable": [
 		{
-			"id": "fe120e5a-2ba2-4896-9ec8-b1c22e806431",
+			"id": "80699a9b-7e9a-485b-bd2e-d692a76bed0e",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "29817346-faea-402d-ba84-fb8c2cd1cbea",
+			"id": "b8a30d3f-9317-4218-9167-1e1439c734fb",
 			"key": "processor_token",
 			"value": ""
 		}
