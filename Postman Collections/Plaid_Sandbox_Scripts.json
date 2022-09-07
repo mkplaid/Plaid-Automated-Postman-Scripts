@@ -3819,7 +3819,7 @@
 									]
 								},
 								{
-									"name": "Client - Asset Relay Create",
+									"name": "Client - Credit Relay Create",
 									"id": "26fd9e36-ab2b-4665-85b4-b9d12be50bd1",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -5934,12 +5934,12 @@
 	],
 	"variable": [
 		{
-			"id": "27dba291-fe5a-4289-999a-2f7ff44ee86c",
+			"id": "1bafa38a-0999-4407-8868-8f5b0aa0b8b7",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "cee98a20-2793-46d3-a385-5e50bc4e3756",
+			"id": "6c0337ca-fef5-4694-9332-fd717b3b5db7",
 			"key": "processor_token",
 			"value": ""
 		}
