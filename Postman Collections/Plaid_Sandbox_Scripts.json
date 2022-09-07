@@ -3867,6 +3867,31 @@
 								},
 								{
 									"name": "Partner - Asset Relay Get",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "bebf3391-1365-4d98-91d9-fbf4b036c075",
+												"exec": [
+													"",
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set public_token env variable",
+													"pm.environment.set(\"relay_token\", body.relay_token);",
+													"//test to validate that public_token env variable is set",
+													"pm.test(\"relay_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"relay_token\")).not.eq(undefined);",
+													"});",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print public_token into test",
+													"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "700fbd1f-12a5-410a-9262-d611cf46dfcc",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -5959,12 +5984,12 @@
 	],
 	"variable": [
 		{
-			"id": "2d59234d-4abc-43ef-aa49-84948092d97a",
+			"id": "c910f712-7acd-488e-b611-d751583e9373",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "6d7350b8-4123-4774-8786-d694690ac361",
+			"id": "2f783987-eee2-4331-873b-3b4ec1dec2f4",
 			"key": "processor_token",
 			"value": ""
 		}
