@@ -3873,7 +3873,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"relay_token\":\"{{relay_token}}\",\n   \"report_type\": \"asset\",\n \"webhook\": \"www.example.com\"\n }\n",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"relay_token\":\"relay_token\",\n   \"report_type\": \"asset\",\n \"webhook\": \"www.example.com\"\n }\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -5934,12 +5934,12 @@
 	],
 	"variable": [
 		{
-			"id": "c286978e-69db-41de-afca-18c0abf83cfe",
+			"id": "647bcf1e-47d5-4430-8dba-7e35e5bc261c",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "d1d1b32f-475b-48b9-9aab-e5bdd7bc6832",
+			"id": "8903f05d-f65d-49c3-84e3-d9615cd30c26",
 			"key": "processor_token",
 			"value": ""
 		}
