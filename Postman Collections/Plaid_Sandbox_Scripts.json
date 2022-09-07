@@ -3920,20 +3920,7 @@
 											"script": {
 												"id": "cdbf9b3a-4c84-4b98-8f22-6446bb192548",
 												"exec": [
-													"",
-													"//Parse json response body",
-													"var body = JSON.parse(responseBody);",
-													"var content = responseBody;",
-													"//set public_token env variable",
-													"pm.environment.set(\"relay_token\", body.relay_token);",
-													"//test to validate that public_token env variable is set",
-													"pm.test(\"relay_token env variable set\", function () {",
-													"    pm.expect(pm.environment.get(\"relay_token\")).not.eq(undefined);",
-													"});",
-													"//Print response body into test",
-													"tests[\"Response Body\"+content]= body.length != 0;",
-													"//Print public_token into test",
-													"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -6034,12 +6021,12 @@
 	],
 	"variable": [
 		{
-			"id": "02b0f465-aed3-4d8b-9c7d-69743457b74a",
+			"id": "2fbd0592-d287-4e59-9c5c-7cff0337f1a7",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "912bad60-59dd-464d-aa8e-55aba0837c23",
+			"id": "e59a0056-5321-48fa-8c46-3f05bb710b3d",
 			"key": "processor_token",
 			"value": ""
 		}
