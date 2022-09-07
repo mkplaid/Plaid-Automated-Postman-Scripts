@@ -3829,14 +3829,14 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"asset_report_token\": \"asset_report_token\",\n \"secondary_client_id\": \"secondary_client_id\",\n \"webhook\" : \"www.example.com\"\n }\n",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"report_tokens\": [\n    {\n      \"report_type\": \"asset\",\n      \"token\": \"{{asset_report_token}}\"\n    }], \n \"secondary_client_id\": \"secondary_client_id\",\n \"webhook\" : \"www.example.com\"\n }\n",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "https://{{env_url}}/asset_report/relay/create"
+										"url": "https://{{env_url}}/credit/relay/create"
 									},
 									"response": []
 								},
@@ -5934,12 +5934,12 @@
 	],
 	"variable": [
 		{
-			"id": "df8fb81b-ad03-4ce2-baf5-b99a4e4f7172",
+			"id": "0f2a1ff4-2f5c-4245-a6f8-f5fbc32f0003",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "3729f0d8-0de2-4728-9dbb-4c81a5b347ef",
+			"id": "420d4490-80c3-4d0f-aea7-ecd37561d765",
 			"key": "processor_token",
 			"value": ""
 		}
