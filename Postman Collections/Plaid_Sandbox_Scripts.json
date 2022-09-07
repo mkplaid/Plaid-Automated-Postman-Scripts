@@ -3854,7 +3854,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"report_tokens\": [\n    {\n      \"report_type\": \"asset\",\n      \"token\": \"{{asset_report_token}}\"\n    }], \n \"secondary_client_id\": \"secondary_client_id\",\n \"webhook\" : \"www.example.com\"\n }\n",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"report_tokens\": [\n    {\n      \"report_type\": \"asset\",\n      \"token\": \"{{asset_report_token}}\"\n    }], \n \"secondary_client_id\": \"608ad82b4635d60011268b23\",\n \"webhook\" : \"www.example.com\"\n }\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -5959,12 +5959,12 @@
 	],
 	"variable": [
 		{
-			"id": "1095d314-6e1e-4578-9311-6c03226a9944",
+			"id": "2d59234d-4abc-43ef-aa49-84948092d97a",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "951e4d93-3a23-4366-903b-bb3b1f299eec",
+			"id": "6d7350b8-4123-4774-8786-d694690ac361",
 			"key": "processor_token",
 			"value": ""
 		}
