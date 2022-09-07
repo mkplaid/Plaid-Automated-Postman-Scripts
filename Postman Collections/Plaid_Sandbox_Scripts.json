@@ -3820,6 +3820,31 @@
 								},
 								{
 									"name": "Client - Credit Relay Create",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a9ecfbf3-0e0b-4ec2-bcea-2ed790c7de49",
+												"exec": [
+													"",
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set public_token env variable",
+													"pm.environment.set(\"relay_token\", body.relay_token);",
+													"//test to validate that public_token env variable is set",
+													"pm.test(\"relay_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"relay_token\")).not.eq(undefined);",
+													"});",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print public_token into test",
+													"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "26fd9e36-ab2b-4665-85b4-b9d12be50bd1",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -5934,12 +5959,12 @@
 	],
 	"variable": [
 		{
-			"id": "647bcf1e-47d5-4430-8dba-7e35e5bc261c",
+			"id": "1095d314-6e1e-4578-9311-6c03226a9944",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "8903f05d-f65d-49c3-84e3-d9615cd30c26",
+			"id": "951e4d93-3a23-4366-903b-bb3b1f299eec",
 			"key": "processor_token",
 			"value": ""
 		}
