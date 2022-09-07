@@ -3895,7 +3895,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"asset_relay_token\": \"asset_relay_token\"\n }\n",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"relay_token\":\"{{relay_token}}\"\n  }\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -5934,12 +5934,12 @@
 	],
 	"variable": [
 		{
-			"id": "53285f9d-5aac-4620-98fd-07e4fb728979",
+			"id": "40f52289-e3a0-43a0-93c8-d227fe68ddd1",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "502dd51a-1ed0-4a8e-8ccb-b341dc366740",
+			"id": "96754dc2-0fe2-48f9-8138-6f9f0bff2f0b",
 			"key": "processor_token",
 			"value": ""
 		}
