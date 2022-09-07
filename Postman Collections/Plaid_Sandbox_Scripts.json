@@ -3851,14 +3851,14 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"relay_token\":\"{{relay_token}}\",\n  \"report_type\": \"asset”\n }\n",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"relay_token\":\"credit-relay-sandbox-8f7d6588-30ad-4866-b814-766d2f7a00f1\",\n  \"report_type\": \"asset\"\n }\n",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "https://{{env_url}}/asset_report/relay/get"
+										"url": "https://{{env_url}}/credit/relay/get"
 									},
 									"response": []
 								},
@@ -5934,12 +5934,12 @@
 	],
 	"variable": [
 		{
-			"id": "59da37c0-e179-4daf-be9f-53b7204c19b3",
+			"id": "fe120e5a-2ba2-4896-9ec8-b1c22e806431",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "aa0905d1-fac2-40a6-9608-b664fbe1190e",
+			"id": "29817346-faea-402d-ba84-fb8c2cd1cbea",
 			"key": "processor_token",
 			"value": ""
 		}
