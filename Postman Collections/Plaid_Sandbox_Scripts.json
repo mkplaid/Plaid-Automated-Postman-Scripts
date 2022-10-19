@@ -6021,12 +6021,12 @@
 	],
 	"variable": [
 		{
-			"id": "0ebfc51e-f3bf-4fa2-b38b-3fac70a19b73",
+			"id": "fc8acbdd-9626-4af8-8bda-3ffba69ab552",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "efb64c1a-000d-4c58-8225-b9f51fa06615",
+			"id": "746378c0-856f-4cdd-8437-1caf10e90414",
 			"key": "processor_token",
 			"value": ""
 		}
