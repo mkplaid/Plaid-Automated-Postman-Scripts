@@ -2769,6 +2769,51 @@
 							"response": []
 						},
 						{
+							"name": "Retrieve Investments Transactions Copy",
+							"id": "a62087dc-a140-4dcd-856c-57ae949bd096",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"access_token\": \"{{access_token}}\",\n  \"start_date\": \"2019-01-01\",\n  \"end_date\": \"2023-01-01\" \n}"
+								},
+								"url": "https://{{env_url}}/investments/transactions/get"
+							},
+							"response": [
+								{
+									"id": "9456b152-5eeb-45e1-ac1d-cb7ab5a439db",
+									"name": "Retrieve Investments Transactions",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"access_token\": \"{{access_token}}\",\n  \"start_date\": \"2019-01-01\",\n  \"end_date\": \"2021-01-01\" \n}"
+										},
+										"url": "https://{{env_url}}/investments/transactions/get"
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"5e66Dl6jNatx3nXPGwZ7UkJed4z6KBcZA4Rbe\",\n      \"balances\": {\n        \"available\": 100,\n        \"current\": 110,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"0000\",\n      \"name\": \"Plaid Checking\",\n      \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    },\n    {\n      \"account_id\": \"KqZZMoZmBWHJlz7yKaZjHZb78VNpaxfVa7e5z\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 320.76,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"5555\",\n      \"name\": \"Plaid IRA\",\n      \"official_name\": null,\n      \"subtype\": \"ira\",\n      \"type\": \"investment\"\n    },\n    {\n      \"account_id\": \"rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 23631.9805,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"6666\",\n      \"name\": \"Plaid 401k\",\n      \"official_name\": null,\n      \"subtype\": \"401k\",\n      \"type\": \"investment\"\n    }\n  ],\n  \"investment_transactions\": [\n    {\n      \"account_id\": \"rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj\",\n      \"amount\": -8.72,\n      \"cancel_transaction_id\": null,\n      \"date\": \"2020-05-29\",\n      \"fees\": 0,\n      \"investment_transaction_id\": \"oq99Pz97joHQem4BNjXECev1E4B6L6sRzwANW\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"INCOME DIV DIVIDEND RECEIVED\",\n      \"price\": 0,\n      \"quantity\": 0,\n      \"security_id\": \"eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ\",\n      \"subtype\": \"dividend\",\n      \"type\": \"cash\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"account_id\": \"rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj\",\n      \"amount\": -1289.01,\n      \"cancel_transaction_id\": null,\n      \"date\": \"2020-05-28\",\n      \"fees\": 7.99,\n      \"investment_transaction_id\": \"pK99jB9e7mtwjA435GpVuMvmWQKVbVFLWme57\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"SELL Matthews Pacific Tiger Fund Insti Class\",\n      \"price\": 27.53,\n      \"quantity\": -47.74104242992852,\n      \"security_id\": \"JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP\",\n      \"subtype\": \"sell\",\n      \"type\": \"sell\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"account_id\": \"rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj\",\n      \"amount\": 7.7,\n      \"cancel_transaction_id\": null,\n      \"date\": \"2020-05-27\",\n      \"fees\": 7.99,\n      \"investment_transaction_id\": \"LKoo1ko93wtreBwM7yQnuQ3P5DNKbKSPRzBNv\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"BUY DoubleLine Total Return Bond Fund\",\n      \"price\": 10.42,\n      \"quantity\": 0.7388014749727547,\n      \"security_id\": \"NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk\",\n      \"subtype\": \"buy\",\n      \"type\": \"buy\",\n      \"unofficial_currency_code\": null\n    }\n  ],\n  \"item\": {\n    \"available_products\": [\n      \"assets\",\n      \"balance\",\n      \"identity\",\n      \"transactions\"\n    ],\n    \"billed_products\": [\n      \"auth\",\n      \"investments\"\n    ],\n    \"consent_expiration_time\": null,\n    \"error\": null,\n    \"institution_id\": \"ins_12\",\n    \"item_id\": \"8Mqq5rqQ7Pcxq9MGDv3JULZ6yzZDLMCwoxGDq\",\n    \"update_type\": \"background\",\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  },\n  \"request_id\": \"iv4q3ZlytOOthkv\",\n  \"securities\": [\n    {\n      \"close_price\": 27,\n      \"close_price_as_of\": null,\n      \"cusip\": \"577130834\",\n      \"institution_id\": null,\n      \"institution_security_id\": null,\n      \"is_cash_equivalent\": false,\n      \"isin\": \"US5771308344\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"Matthews Pacific Tiger Fund Insti Class\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"MIPTX\",\n      \"type\": \"mutual fund\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"close_price\": 10.42,\n      \"close_price_as_of\": null,\n      \"cusip\": \"258620103\",\n      \"institution_id\": null,\n      \"institution_security_id\": null,\n      \"is_cash_equivalent\": false,\n      \"isin\": \"US2586201038\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"DoubleLine Total Return Bond Fund\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"DBLTX\",\n      \"type\": \"mutual fund\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"close_price\": 34.73,\n      \"close_price_as_of\": null,\n      \"cusip\": \"84470P109\",\n      \"institution_id\": null,\n      \"institution_security_id\": null,\n      \"is_cash_equivalent\": false,\n      \"isin\": \"US84470P1093\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"Southside Bancshares Inc.\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"SBSI\",\n      \"type\": \"equity\",\n      \"unofficial_currency_code\": null\n    }\n  ],\n  \"total_investment_transactions\": 3\n}"
+								}
+							]
+						},
+						{
 							"name": "Retrieve Investments Transactions Data",
 							"event": [
 								{
@@ -6021,12 +6066,12 @@
 	],
 	"variable": [
 		{
-			"id": "a2b0bb0c-27b6-44ae-a0fa-eb7b4488f6a9",
+			"id": "b9ec41d8-e439-49d8-a253-03fa799e6919",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "f64324f2-60ed-4b0c-af99-adbcd7fc30ec",
+			"id": "7a9ec505-bb5a-40da-a26a-f269b1698f61",
 			"key": "processor_token",
 			"value": ""
 		}
