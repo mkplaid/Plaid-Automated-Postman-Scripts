@@ -6066,12 +6066,12 @@
 	],
 	"variable": [
 		{
-			"id": "b9ec41d8-e439-49d8-a253-03fa799e6919",
+			"id": "21295a6e-eb7c-4cb2-90e1-634d232c6776",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "7a9ec505-bb5a-40da-a26a-f269b1698f61",
+			"id": "f3b48d8b-4d33-4515-8c84-932a6fd98020",
 			"key": "processor_token",
 			"value": ""
 		}
