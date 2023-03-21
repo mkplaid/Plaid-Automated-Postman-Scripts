@@ -972,8 +972,18 @@
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"access_token\": \"{{access_token}}\",\n  \"user\": {\n      \"legal_name\": \"Drew Sapp\",\n      \"phone_number\": \"+1704999999\",\n      \"email_address\": \"email.test@gmail.com\",\n      \"address\": {\n          \"city\": \"mooresville\",\n          \"region\": \"NC\",\n          \"country\": \"US\",\n          \"street\": \"130 Sunrise Circle\",\n          \"postal_code\": \"28117\"\n      }\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://{{env_url}}/identity/match"
 							},
 							"response": []
 						}
@@ -6078,12 +6088,12 @@
 	],
 	"variable": [
 		{
-			"id": "78871bad-12eb-4279-a913-a5f95f910c13",
+			"id": "1bd770c6-4fb4-4a7b-8694-b99e951ec43b",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "20055ec5-6d9e-415d-8e6b-17bf5135a273",
+			"id": "71bbdff2-0323-418f-b3fa-116d1b92bc5d",
 			"key": "processor_token",
 			"value": ""
 		}
