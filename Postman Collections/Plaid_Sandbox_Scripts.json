@@ -4366,7 +4366,7 @@
 									]
 								},
 								{
-									"name": "Retrieve JSON Asset Report Copy",
+									"name": "Retrieve JSON Asset Report",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -6655,12 +6655,12 @@
 	],
 	"variable": [
 		{
-			"id": "d9c303d3-a0ab-456b-af45-638c1bf9b9ee",
+			"id": "80be989f-935b-4bf1-813f-ca44684bad18",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "ffd58dad-bbcf-41e5-ae1a-78eac9c51b4f",
+			"id": "27c13b8d-9ae8-4bc6-8d24-fe0acdc8ba01",
 			"key": "processor_token",
 			"value": ""
 		}
