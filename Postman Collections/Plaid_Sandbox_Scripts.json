@@ -4113,6 +4113,54 @@
 										"description": "Creates an `Item` in the `sandbox` environment. You will get back a `public_token` and a `request_id`."
 									},
 									"response": []
+								},
+								{
+									"name": "Get Link Delivery",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a34a8b23-6f09-478a-83a7-4c4432eaa47a",
+												"exec": [
+													"",
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set public_token env variable",
+													"pm.environment.set(\"public_token\", body.public_token);",
+													"//test to validate that public_token env variable is set",
+													"pm.test(\"public_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"public_token\")).not.eq(undefined);",
+													"});",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print public_token into test",
+													"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "c7431a2c-d365-410d-a667-ca1605a97918",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n   \"client_id\": \"{{client_id}}\",\n   \"secret\": \"{{secret_key}}\",\n   \"link_token\": \"{{link_token}}\",\n   \"options\": {\n      \"recipient\": {\n         \"communication_methods\": [\n           {\"method\": \"email\", \"address\": \"johnsmith@plaid.com\"},\n            {\"method\": \"SMS\", \"address\": \"+12223334444\"}\n         ],\n         \"first_name\": \"John\"\n      }\n   }\n}\n"
+										},
+										"url": "https://{{env_url}}/link_delivery/create",
+										"description": "Creates an `Item` in the `sandbox` environment. You will get back a `public_token` and a `request_id`."
+									},
+									"response": []
 								}
 							],
 							"id": "6c8ed50d-4e13-452b-98fe-f0ab7ffd9d5b"
@@ -6142,12 +6190,12 @@
 	],
 	"variable": [
 		{
-			"id": "0d3f4f63-fe03-4112-8b7d-321a15438f80",
+			"id": "0b968020-e3cf-4064-8ccf-99c8d61389e1",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "3898bac4-a3d7-4f87-ba1d-25d7e0c43518",
+			"id": "cdd79860-e207-4048-86db-a8d2d88f30e5",
 			"key": "processor_token",
 			"value": ""
 		}
