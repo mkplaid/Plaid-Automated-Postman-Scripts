@@ -4093,7 +4093,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"client_name\": \"Insert Client name here\",\n  \"country_codes\": [\"US\"],\n  \"language\": \"en\",\n  \"user\": {\n    \"client_user_id\": \"unique_user_id\",\n    \"legal_name\": \"John Smith\"\n  },\n  \"products\": [\"auth\"],\n\"webhook\": \"https://sample-web-hook.com\"\n}"
+											"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"client_name\": \"Insert Client name here\",\n  \"country_codes\": [\"US\"],\n  \"language\": \"en\",\n  \"user\": {\n    \"client_user_id\": \"unique_user_id\",\n    \"legal_name\": \"John Smith\"\n  },\n  \"products\": [\"assets\"],\n\"webhook\": \"https://sample-web-hook.com\"\n}"
 										},
 										"url": "https://{{env_url}}/link/token/create",
 										"description": "Creates a link token with options. The link token can then be used to initialize Plaid Link."
@@ -6676,12 +6676,12 @@
 	],
 	"variable": [
 		{
-			"id": "2784d8f7-98f4-481a-a361-53929d4386de",
+			"id": "0f2af410-e010-4554-bf61-beab2edcc26c",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "b3e69bc4-dc67-4514-a7aa-d8b2908e5e35",
+			"id": "917819e0-fdf0-4df7-bc55-36f5b178d6f6",
 			"key": "processor_token",
 			"value": ""
 		}
