@@ -6190,12 +6190,12 @@
 	],
 	"variable": [
 		{
-			"id": "0b968020-e3cf-4064-8ccf-99c8d61389e1",
+			"id": "0b7116b8-505d-489d-8a26-242ec9811363",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "cdd79860-e207-4048-86db-a8d2d88f30e5",
+			"id": "14f12c7f-372f-48e2-8244-a6bef26ea344",
 			"key": "processor_token",
 			"value": ""
 		}
