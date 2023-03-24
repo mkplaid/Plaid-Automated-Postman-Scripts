@@ -4109,7 +4109,7 @@
 											"mode": "raw",
 											"raw": "{\n   \"client_id\": \"{{client_id}}\",\n   \"secret\": \"{{secret}}\",\n   \"link_token\": \"{{link_token}}\",\n   \"options\": {\n      \"recipient\": {\n         \"communication_methods\": [\n           {\"method\": \"email\", \"address\": \"johnsmith@plaid.com\"},\n            {\"method\": \"SMS\", \"address\": \"+1112223333\"}\n         ],\n         \"first_name\": \"John\"\n      }\n   }\n}\n"
 										},
-										"url": "https://{{env_url}}/sandbox/link_delivery/create\n\n",
+										"url": "https://{{env_url}}/link_delivery/create",
 										"description": "Creates an `Item` in the `sandbox` environment. You will get back a `public_token` and a `request_id`."
 									},
 									"response": []
@@ -6142,12 +6142,12 @@
 	],
 	"variable": [
 		{
-			"id": "52f4ae78-4813-41c7-9f6f-c96d9de09429",
+			"id": "1cd46a3e-d547-4b88-b3d5-9112cbbdcc23",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "f5fafec5-8afc-4292-b40a-1c992083ed3a",
+			"id": "83f16fcf-3544-4e44-893e-b3e5ef2f03d6",
 			"key": "processor_token",
 			"value": ""
 		}
