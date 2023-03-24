@@ -4065,7 +4065,56 @@
 						},
 						{
 							"name": "Link Delivery Service",
-							"item": [],
+							"item": [
+								{
+									"name": "Create Link Delivery",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a34a8b23-6f09-478a-83a7-4c4432eaa47a",
+												"exec": [
+													"",
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set public_token env variable",
+													"pm.environment.set(\"public_token\", body.public_token);",
+													"//test to validate that public_token env variable is set",
+													"pm.test(\"public_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"public_token\")).not.eq(undefined);",
+													"});",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print public_token into test",
+													"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "fe117297-3554-42f1-b42c-33a4e86c0eaf",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"institution_id\": \"ins_3\",\n  \"initial_products\": [\"assets\"],\n  \"options\": {\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  }\n}"
+										},
+										"url": "https://{{env_url}}/sandbox/public_token/create",
+										"description": "Creates an `Item` in the `sandbox` environment. You will get back a `public_token` and a `request_id`."
+									},
+									"response": []
+								}
+							],
 							"id": "6c8ed50d-4e13-452b-98fe-f0ab7ffd9d5b"
 						}
 					],
@@ -6093,12 +6142,12 @@
 	],
 	"variable": [
 		{
-			"id": "44efdfcc-f72d-4a41-9cfd-6cb0731fe5c6",
+			"id": "1e3baa25-6aba-4a2c-86de-77aa31054bcf",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "726e7562-b332-4ce6-8a31-573467f46c0d",
+			"id": "063e85f7-3eb8-4b65-8715-e12c447f465c",
 			"key": "processor_token",
 			"value": ""
 		}
