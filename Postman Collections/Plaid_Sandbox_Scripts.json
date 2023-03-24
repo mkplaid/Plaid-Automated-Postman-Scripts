@@ -4220,7 +4220,7 @@
 									"response": []
 								},
 								{
-									"name": "Create Asset Report Copy",
+									"name": "Create Asset Report",
 									"event": [
 										{
 											"listen": "test",
@@ -6655,12 +6655,12 @@
 	],
 	"variable": [
 		{
-			"id": "93afe433-6cca-457b-987b-6bf5e9cd1b35",
+			"id": "d9c303d3-a0ab-456b-af45-638c1bf9b9ee",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "50d241d8-6cd6-471e-a7ce-134ff4d08c42",
+			"id": "ffd58dad-bbcf-41e5-ae1a-78eac9c51b4f",
 			"key": "processor_token",
 			"value": ""
 		}
