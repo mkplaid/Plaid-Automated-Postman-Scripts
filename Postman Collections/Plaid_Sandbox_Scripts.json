@@ -4107,7 +4107,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n   \"client_id\": \"{{client_id}}\",\n   \"secret\": \"{{secret}}\",\n   \"link_token\": \"{{link_token}}\",\n   \"options\": {\n      \"recipient\": {\n         \"communication_methods\": [\n           {\"method\": \"email\", \"address\": \"johnsmith@plaid.com\"},\n            {\"method\": \"SMS\", \"address\": \"+1112223333\"}\n         ],\n         \"first_name\": \"John\"\n      }\n   }\n}\n"
+											"raw": "{\n   \"client_id\": \"{{client_id}}\",\n   \"secret\": \"{{secret_key}}\",\n   \"link_token\": \"{{link_token}}\",\n   \"options\": {\n      \"recipient\": {\n         \"communication_methods\": [\n           {\"method\": \"email\", \"address\": \"johnsmith@plaid.com\"},\n            {\"method\": \"SMS\", \"address\": \"+12223334444\"}\n         ],\n         \"first_name\": \"John\"\n      }\n   }\n}\n"
 										},
 										"url": "https://{{env_url}}/link_delivery/create",
 										"description": "Creates an `Item` in the `sandbox` environment. You will get back a `public_token` and a `request_id`."
@@ -6142,12 +6142,12 @@
 	],
 	"variable": [
 		{
-			"id": "1cd46a3e-d547-4b88-b3d5-9112cbbdcc23",
+			"id": "0d3f4f63-fe03-4112-8b7d-321a15438f80",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "83f16fcf-3544-4e44-893e-b3e5ef2f03d6",
+			"id": "3898bac4-a3d7-4f87-ba1d-25d7e0c43518",
 			"key": "processor_token",
 			"value": ""
 		}
