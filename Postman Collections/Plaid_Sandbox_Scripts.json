@@ -4650,6 +4650,435 @@
 								}
 							],
 							"id": "6c8ed50d-4e13-452b-98fe-f0ab7ffd9d5b"
+						},
+						{
+							"name": "Assets Relay Token",
+							"item": [
+								{
+									"name": "Client - Create Assets Sandbox Item",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "50617a7c-eaac-4fef-b1c2-1733e9a9dca0",
+												"exec": [
+													"",
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set public_token env variable",
+													"pm.environment.set(\"public_token\", body.public_token);",
+													"//test to validate that public_token env variable is set",
+													"pm.test(\"public_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"public_token\")).not.eq(undefined);",
+													"});",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print public_token into test",
+													"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "58319f8d-d5e6-483f-8a06-0c9582236994",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"institution_id\": \"ins_3\",\n  \"initial_products\": [\"assets\"],\n  \"options\": {\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  }\n}"
+										},
+										"url": "https://{{env_url}}/sandbox/public_token/create",
+										"description": "Creates an `Item` in the `sandbox` environment. You will get back a `public_token` and a `request_id`."
+									},
+									"response": []
+								},
+								{
+									"name": "Client - Exchange public_token for access_token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "58bec875-6d7c-48bb-95b4-d74bbc0023e2",
+												"exec": [
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set access_token env variable",
+													"pm.environment.set(\"access_token\", body.access_token);",
+													"//clear public_token env variable",
+													"pm.environment.unset(\"public_token\", \"\");",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print access_token into test",
+													"tests[\"access_token: \" + body.access_token]= body.access_token != 0;",
+													"//test to validate that public_token env variable is cleared",
+													"pm.test(\"public_token env variable cleared\", function () {",
+													"    pm.expect(pm.environment.get(\"public_token\")).eq(undefined);",
+													"});",
+													"//test to validate that access_token env variable is set",
+													"pm.test(\"access_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"access_token\")).not.eq(undefined);",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "65f40d92-fd72-4f75-acca-20cb7d42b5e9",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n  \"public_token\": \"{{public_token}}\"\n}"
+										},
+										"url": "https://{{env_url}}/item/public_token/exchange",
+										"description": "Goes through the exchange token process where the `public_token` is exchanged for an `access_token`."
+									},
+									"response": []
+								},
+								{
+									"name": "Client - Create Asset Report",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "98b5bab4-b9e4-4aa4-82f2-8866dfcd367b",
+												"exec": [
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set asset_report_token env variable",
+													"pm.environment.set(\"asset_report_token\", body.asset_report_token);",
+													"//test to validate that asset_report_token env variable is set",
+													"pm.test(\"asset_report_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"asset_report_token\")).not.eq(undefined);",
+													"});",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print access_token into test",
+													"tests[\"asset_report_token: \" + body.asset_report_token]= body.asset_report_token != 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "f7713c41-c716-483c-95d2-ed3a7e5ad6d0",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n   \"client_id\": \"{{client_id}}\",\n   \"secret\": \"{{secret_key}}\",\n   \"access_tokens\": [\"{{access_token}}\"],\n   \"days_requested\": 90,\n   \"options\": {\n      \"client_report_id\": \"\",\n      \"webhook\": \"https://www.genericwebhookurl.com/webhook\",\n      \"user\": {\n        \"client_user_id\": \"\",\n        \"first_name\": \"\",\n        \"middle_name\": \"\",\n        \"last_name\": \"\",\n        \"phone_number\": \"\",\n        \"email\": \"\"\n      }\n   }\n }"
+										},
+										"url": "https://{{env_url}}/asset_report/create",
+										"description": "With your desired `access_tokens` in hand, all you need to do to create an Asset Report is to call the `/asset_report/create` endpoint.\n\nWhen creating an Asset Report, the only required fields are your `client_id`, `secret`, an `array of access_tokens` (one for each Item to be included in the Report), and the number of `days_requested` which determines the duration of transaction history to be included.\n\n`options` is optional!"
+									},
+									"response": [
+										{
+											"id": "b42f2ac9-ade4-49c3-850c-02e9eab1384f",
+											"name": "Create Asset Report Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n   \"client_id\": \"{{client_id}}\",\n   \"secret\": \"{{secret_key}}\",\n   \"access_tokens\": [\"access-sandbox-872d26b4-449a-4676-b2d4-1a014835a9ba\"],\n   \"days_requested\": 30,\n   \"options\": {\n      \"client_report_id\": \"example_report_id\",\n      \"webhook\": \"https://www.randomdomain.com/webhook_url\",\n      \"user\": {\n        \"client_user_id\": \"example_user_id\",\n        \"first_name\": \"John\",\n        \"middle_name\": \"Deere\",\n        \"last_name\": \"Doe\",\n        \"ssn\": \"123-45-7890\",\n        \"phone_number\": \"3214560987\",\n        \"email\": \"john@doe.com\"\n      }\n   }\n }"
+												},
+												"url": "https://{{env_url}}/asset_report/create"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Connection",
+													"value": "keep-alive",
+													"name": "Connection",
+													"description": "Options that are desired for the connection"
+												},
+												{
+													"key": "Content-Encoding",
+													"value": "gzip",
+													"name": "Content-Encoding",
+													"description": "The type of encoding used on the data."
+												},
+												{
+													"key": "Content-Length",
+													"value": "155",
+													"name": "Content-Length",
+													"description": "The length of the response body in octets (8-bit bytes)"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"name": "Content-Type",
+													"description": "The mime type of this content"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 29 Aug 2018 22:22:56 GMT",
+													"name": "Date",
+													"description": "The date and time that the message was sent"
+												},
+												{
+													"key": "Plaid-Version",
+													"value": "2018-05-22",
+													"name": "Plaid-Version",
+													"description": "Custom header"
+												},
+												{
+													"key": "Server",
+													"value": "nginx",
+													"name": "Server",
+													"description": "A name for the server"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=31536000; includeSubDomains; preload",
+													"name": "Strict-Transport-Security",
+													"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+												},
+												{
+													"key": "Vary",
+													"value": "Accept-Encoding",
+													"name": "Vary",
+													"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff",
+													"name": "X-Content-Type-Options",
+													"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "DENY",
+													"name": "X-Frame-Options",
+													"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block",
+													"name": "X-XSS-Protection",
+													"description": "Cross-site scripting (XSS) filter"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"asset_report_id\": \"67de6f27-dc59-4663-a5ec-f2e3c271d208\",\n  \"asset_report_token\": \"assets-sandbox-d4002c0d-458a-41d0-9208-ac23700940f1\",\n  \"request_id\": \"xHPFT\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Client - Credit Relay Create",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a9ecfbf3-0e0b-4ec2-bcea-2ed790c7de49",
+												"exec": [
+													"",
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set public_token env variable",
+													"pm.environment.set(\"relay_token\", body.relay_token);",
+													"//test to validate that public_token env variable is set",
+													"pm.test(\"relay_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"relay_token\")).not.eq(undefined);",
+													"});",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print public_token into test",
+													"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "1830bd56-220a-40bf-b374-b53dda416179",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"report_tokens\": [\"{{asset_report_token}}\"], \n \"secondary_client_id\": \"608ad82b4635d60011268b23\",\n \"webhook\" : \"www.example.com\"\n }\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://{{env_url}}/credit/relay/create"
+									},
+									"response": []
+								},
+								{
+									"name": "Partner - Asset Relay Get",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "bebf3391-1365-4d98-91d9-fbf4b036c075",
+												"exec": [
+													"",
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set public_token env variable",
+													"pm.environment.set(\"relay_token\", body.relay_token);",
+													"//test to validate that public_token env variable is set",
+													"pm.test(\"relay_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"relay_token\")).not.eq(undefined);",
+													"});",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print public_token into test",
+													"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "0ae407c7-946e-49b2-9b59-eb2136842a0c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"relay_token\":\"{{relay_token}}\",\n \"report_type\": \"asset\"\n }\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://{{env_url}}/credit/relay/get"
+									},
+									"response": []
+								},
+								{
+									"name": "Partner - Asset Relay Refresh",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "cdbf9b3a-4c84-4b98-8f22-6446bb192548",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "a8334086-2cf4-48a8-8556-0bc434623362",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"relay_token\":\"relay_token\",\n   \"report_type\": \"asset\",\n \"webhook\": \"www.example.com\"\n }\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://{{env_url}}/credit/relay/refresh"
+									},
+									"response": []
+								},
+								{
+									"name": "Client - Asset Relay Remove",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "15f19113-a5c5-43ad-8cfb-1e8864ef9044",
+												"exec": [
+													"",
+													"//Parse json response body",
+													"var body = JSON.parse(responseBody);",
+													"var content = responseBody;",
+													"//set public_token env variable",
+													"pm.environment.set(\"relay_token\", body.relay_token);",
+													"//test to validate that public_token env variable is set",
+													"pm.test(\"relay_token env variable set\", function () {",
+													"    pm.expect(pm.environment.get(\"relay_token\")).not.eq(undefined);",
+													"});",
+													"//Print response body into test",
+													"tests[\"Response Body\"+content]= body.length != 0;",
+													"//Print public_token into test",
+													"tests[\"public_token: \" + body.public_token]= body.public_token != 0;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "1beff81b-04c3-460f-9bd4-4654b42e7397",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n \"client_id\": \"{{client_id}}\",\n  \"secret\": \"{{secret_key}}\",\n \"relay_token\":\"{{relay_token}}\"\n  }\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://{{env_url}}/credit/relay/remove"
+									},
+									"response": []
+								}
+							],
+							"id": "3080ee59-7a86-4462-b879-7781e3d228e1"
 						}
 					],
 					"id": "598702df-b819-408b-b541-3c4910cad586"
@@ -6676,12 +7105,12 @@
 	],
 	"variable": [
 		{
-			"id": "ffa57983-a72d-4185-add8-197f9abb54bc",
+			"id": "2865b110-aaa1-465f-a050-4cadcb2a9f41",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "a8bc89d4-7d62-425e-a21e-a60247284e3d",
+			"id": "5bb495d4-3cdf-4268-b67b-2081cf6ff1e5",
 			"key": "processor_token",
 			"value": ""
 		}
