@@ -6676,12 +6676,12 @@
 	],
 	"variable": [
 		{
-			"id": "0f2af410-e010-4554-bf61-beab2edcc26c",
+			"id": "e4716b47-c320-496f-9b5a-0b4f76aeb40f",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "917819e0-fdf0-4df7-bc55-36f5b178d6f6",
+			"id": "bc68dbcf-d83b-467c-abab-41646d9cdc29",
 			"key": "processor_token",
 			"value": ""
 		}
