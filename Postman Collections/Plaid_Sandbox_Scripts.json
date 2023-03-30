@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "e6d2e703-2bbc-449b-b0c5-10cb2c7a2297",
-		"name": "Plaid Sandbox Scripts 2022-05-17",
+		"name": "Plaid Sandbox Scripts 2023-03-30",
 		"description": "A collection of Plaid API endpoints for the `sandbox` environment. Each endpoint request comes with an example request & response. It also contains 'use cases' for each product.  \n<br />\nBefore you begin, please set your `client_id` and `secret_key` variables in the Sandbox environment. You can find them in your Plaid [dashboard](https://dashboard.plaid.com/account/keys). Set the variables by clicking on the 'eye' icon in the top-right corner of the screen.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -6676,12 +6676,12 @@
 	],
 	"variable": [
 		{
-			"id": "e4716b47-c320-496f-9b5a-0b4f76aeb40f",
+			"id": "ffa57983-a72d-4185-add8-197f9abb54bc",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "bc68dbcf-d83b-467c-abab-41646d9cdc29",
+			"id": "a8bc89d4-7d62-425e-a21e-a60247284e3d",
 			"key": "processor_token",
 			"value": ""
 		}
