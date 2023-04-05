@@ -4145,7 +4145,7 @@
 													"//Print response body into test",
 													"tests[\"Response Body\"+content]= body.length != 0;",
 													"//Print public_token into test",
-													"tests[\"link_delivery_session_id: \" + body.link_delivery_session_id]= link_delivery_session_id != 0;"
+													"tests[\"link_delivery_session_id: \" + body.link_delivery_session_id]= body.link_delivery_session_id != 0;"
 												],
 												"type": "text/javascript"
 											}
@@ -7105,12 +7105,12 @@
 	],
 	"variable": [
 		{
-			"id": "6947f744-ec8e-4a30-9387-461336f5685a",
+			"id": "9ca859b0-fba0-448a-a52d-d5be1cd78438",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "b4e5c502-7853-41fd-abf1-bd5588a27035",
+			"id": "71d23b31-412c-4cf6-accb-867057d164ef",
 			"key": "processor_token",
 			"value": ""
 		}
