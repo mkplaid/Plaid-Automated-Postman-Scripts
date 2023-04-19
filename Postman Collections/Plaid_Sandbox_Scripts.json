@@ -7079,6 +7079,11 @@
 				}
 			],
 			"id": "21177037-023e-4fee-a86c-81b88e00119f"
+		},
+		{
+			"name": "New Folder",
+			"item": [],
+			"id": "e82db670-4d3b-4281-9548-18e9cb165cdf"
 		}
 	],
 	"event": [
@@ -7105,12 +7110,12 @@
 	],
 	"variable": [
 		{
-			"id": "cc28134e-58fd-4459-80d2-4d1e3a79f2f1",
+			"id": "f9ac2b62-b26b-4e63-9fdf-fa31499b61f2",
 			"key": "origin",
 			"value": "https://sandbox.plaid.com (Sandbox)"
 		},
 		{
-			"id": "875fd27e-e282-4a31-b1a3-23c295b7e12d",
+			"id": "68c33ac3-b922-469a-8966-84f303d610b3",
 			"key": "processor_token",
 			"value": ""
 		}
